@@ -4,7 +4,8 @@ module.exports = [
     slug: "dumpster-rental",
     name: "Dumpster Rental",
     metaDesc: "How dumpster rental works in the Indianapolis metro, typical sizes and costs, and how to pick the right size for your cleanout or renovation project.",
-    overview: `Renting a dumpster is usually the fastest way to deal with the debris from a home renovation, garage cleanout, roofing job, or move. A rental company drops an open-top container in your driveway or another approved spot, you fill it over an agreed rental period (typically 7 to 10 days), and the company hauls it away and disposes of the contents. The main decision homeowners face is size: dumpsters are generally rented in 10, 20, 30, and 40 cubic-yard containers, with larger sizes suited to whole-home cleanouts or major renovation debris and smaller sizes fitting a single room remodel or yard cleanup. Most companies price rentals with a flat rate that includes delivery, pickup, and a set weight allowance, with additional per-ton fees if you go over. Some materials, like certain construction debris, tires, or hazardous waste, may require special handling or aren't accepted at all, so it's worth confirming what you're allowed to put in the container before you start filling it.`,
+    partner: { baseUrl: "https://dumpsterrentalindianapolis.org/", extension: "", anchorLabel: "dumpster rental" },
+    overview: `Renting a dumpster is usually the fastest way to deal with the debris from a home renovation, garage cleanout, roofing job, or move. A rental company drops an open-top container in your driveway or another approved spot, you fill it over an agreed rental period (typically 7 to 10 days), and the company hauls it away and disposes of the contents. The main decision homeowners face is size: dumpsters are generally rented in 10, 20, 30, and 40 cubic-yard containers, with larger sizes suited to whole-home cleanouts or major renovation debris and smaller sizes fitting a single room remodel or yard cleanup. Most companies price rentals with a flat rate that includes delivery, pickup, and a set weight allowance, with additional per-ton fees if you go over. Some materials, like certain construction debris, tires, or hazardous waste, may require special handling or aren't accepted at all, so it's worth confirming what you're allowed to put in the container before you start filling it. If you'd rather skip sizing a container yourself, a local outfit like [Dumpster Rental Indianapolis](https://dumpsterrentalindianapolis.org/) can help you pick the right size and handle delivery and pickup on a schedule that fits your project.`,
     costInfo: {
       intro: "Dumpster rental pricing in the Indianapolis metro depends mainly on container size and rental duration, with most companies quoting an all-in flat rate:",
       items: [
@@ -145,7 +146,7 @@ module.exports = [
     slug: "junk-removal",
     name: "Junk Removal",
     metaDesc: "How junk removal works in the Indianapolis metro, typical pricing for full and partial loads, and how to choose a hauler for your cleanout.",
-    junkRemoval: true,
+    partner: { baseUrl: "https://indianapolisjunkremoval.org/", extension: ".html", anchorLabel: "junk removal" },
     overview: `Junk removal is a full-service alternative to renting a dumpster: instead of filling a container yourself, a crew comes to your home, does the loading and hauling for you, and takes the debris away in one visit. It's a popular choice for garage and basement cleanouts, furniture and appliance removal, estate cleanouts, and situations where you need items gone quickly without the time commitment of a multi-day dumpster rental. Most junk removal companies price jobs by volume — how much space your items take up in the truck — rather than by weight, and many offer same-day or next-day service, which makes it a good fit for time-sensitive situations like move-outs or preparing a home for sale. Reputable companies also sort out items that can be donated or recycled rather than sending everything straight to a landfill, which is worth asking about if that matters to you. For same-day junk removal in the Indianapolis area, providers like [Indianapolis Junk Removal](https://indianapolisjunkremoval.org/) offer upfront pricing and full-service hauling, handling everything from single-item pickups to whole-house cleanouts.`,
     costInfo: {
       intro: "Junk removal is typically priced by how much of the truck your items fill, rather than a flat per-item rate:",
@@ -259,7 +260,8 @@ module.exports = [
     slug: "home-inspection",
     name: "Home Inspection",
     metaDesc: "What a home inspection covers, typical costs in the Indianapolis metro, and how to choose a qualified inspector for buying, selling, or routine checkups.",
-    overview: `A home inspection is a visual, non-invasive evaluation of a home's major systems and components — roof, foundation, plumbing, electrical, HVAC, and structural elements — typically performed before a home purchase, though many homeowners also get periodic inspections to catch maintenance issues early. A standard inspection takes two to four hours depending on home size and results in a detailed written report, often with photos, flagging both urgent safety concerns and general maintenance items. Buyers commonly use the inspection report to negotiate repairs or credits before closing. Some issues fall outside a standard inspection's scope and require specialists — radon testing, sewer scope inspections, and mold testing are common add-ons in the Indianapolis area, where radon levels can be elevated in certain neighborhoods due to regional soil and geology.`,
+    partner: { baseUrl: "https://indianapolishomeinspectionservices.com/", extension: "", anchorLabel: "home inspection" },
+    overview: `A home inspection is a visual, non-invasive evaluation of a home's major systems and components — roof, foundation, plumbing, electrical, HVAC, and structural elements — typically performed before a home purchase, though many homeowners also get periodic inspections to catch maintenance issues early. A standard inspection takes two to four hours depending on home size and results in a detailed written report, often with photos, flagging both urgent safety concerns and general maintenance items. Buyers commonly use the inspection report to negotiate repairs or credits before closing. Some issues fall outside a standard inspection's scope and require specialists — radon testing, sewer scope inspections, and mold testing are common add-ons in the Indianapolis area, where radon levels can be elevated in certain neighborhoods due to regional soil and geology. Local firms like [Indianapolis Home Inspection Services](https://indianapolishomeinspectionservices.com/) handle these standard and specialty inspections together, which can simplify scheduling if you need more than a basic walkthrough.`,
     costInfo: {
       intro: "Home inspection costs typically scale with home size and any additional testing requested:",
       items: [
@@ -477,6 +479,37 @@ module.exports = [
       { q: "Is it cheaper to hire a handyman or a specialist for small jobs?", a: "For small, general tasks, a handyman is usually more cost-effective than hiring a specialized trade, which often has higher minimum service fees for a comparably small job." },
       { q: "How should I prepare for a handyman visit to save money?", a: "Make a full list of tasks and batch them into a single visit rather than calling separately for each one, since most handymen charge a minimum visit fee regardless of job size." },
       { q: "Do handymen need to be licensed in Indiana?", a: "General handyman work typically doesn't require a specific state license in Indiana, though some cities have local registration requirements, and any electrical or plumbing work beyond minor fixture swaps generally does require a licensed trade." }
+    ]
+  },
+  {
+    slug: "pressure-washing",
+    name: "Pressure Washing",
+    metaDesc: "Pressure washing (power washing) costs in the Indianapolis metro for driveways, siding, decks, and roofs, plus how to choose a provider who won't damage your surfaces.",
+    partner: { baseUrl: "https://powerwashingindianapolisin.com/", extension: "", anchorLabel: "power washing" },
+    overview: `Pressure washing uses a high-pressure water spray to strip away dirt, algae, mildew, and grime that build up on exterior surfaces over time — driveways, sidewalks, siding, decks, fences, and patios are the most common jobs. You'll often hear it called "power washing" instead; technically, power washing uses heated water while pressure washing uses water at ambient temperature, but most homeowners and even many service providers use the two terms interchangeably, and either search term generally gets you the same service. Central Indiana's humid summers and shaded, tree-heavy yards make algae and mildew growth a fairly regular problem on siding and shaded concrete, and winter road salt tracked onto driveways and garage floors is another common reason homeowners book a cleaning each spring. Not every surface should be cleaned the same way: concrete driveways and sidewalks can generally handle high-pressure spraying, but roofs, painted or vinyl siding, and softwood decking are more easily damaged by too much pressure or the wrong nozzle, and are usually cleaned with "soft washing" — a lower-pressure spray combined with a cleaning solution that lifts grime without stripping material or forcing water behind siding panels. Companies like [Power Washing Indianapolis](https://powerwashingindianapolisin.com/) specialize in matching pressure and technique to the surface, which is worth it for anything beyond a straightforward concrete cleaning.`,
+    costInfo: {
+      intro: "Pressure washing is typically priced by the project or square footage, depending on the surface:",
+      items: [
+        { label: "Driveway or sidewalk", range: "$150–$300" },
+        { label: "Deck or patio", range: "$150–$300" },
+        { label: "House siding (single-story)", range: "$250–$450" },
+        { label: "House siding (two-story)", range: "$400–$700" },
+        { label: "Roof soft washing", range: "$300–$600" }
+      ],
+      note: "Roofs need low-pressure soft washing rather than high-pressure spraying, which can strip shingle granules — a reputable provider should already know this without being asked."
+    },
+    howToChoose: [
+      "Ask whether they use soft washing (lower pressure plus a cleaning solution) for roofs, siding, and wood decking rather than high-pressure spraying, which can cause real damage.",
+      "Confirm the company carries liability insurance, since incorrect pressure near windows, siding, or the roofline can cause costly damage.",
+      "Ask what cleaning solutions are used and whether they're safe for nearby landscaping, pets, and lawn.",
+      "Get a price based on square footage or a clearly defined project scope rather than a vague hourly estimate.",
+      "Look for reviews or photos specific to the surface you need cleaned — driveway experience doesn't necessarily mean roof or siding expertise."
+    ],
+    faqs: [
+      { q: "What's the difference between power washing and pressure washing?", a: "Technically, power washing uses heated water while pressure washing uses water at normal temperature, both at high pressure. In practice, most homeowners and many companies use the terms interchangeably to mean the same general service." },
+      { q: "Is pressure washing safe for my roof?", a: "High-pressure spraying can strip granules off asphalt shingles and shorten their lifespan, so roofs are typically cleaned with a lower-pressure \"soft washing\" method using a cleaning solution instead. Ask specifically which method a provider uses on roofs." },
+      { q: "How often should a driveway or siding be pressure washed?", a: "Most homeowners in the Indianapolis area wash driveways and siding about once a year, typically in spring after winter salt and grime have accumulated, though shaded or heavily wooded properties with more algae growth may benefit from twice a year." },
+      { q: "Can pressure washing damage my siding or deck?", a: "Yes, if the pressure is too high or the wrong nozzle and technique are used — vinyl siding can crack or let water intrude behind panels, and softwood decking can splinter or gouge. This is why asking about soft-washing technique and PSI settings matters when hiring." }
     ]
   }
 ];

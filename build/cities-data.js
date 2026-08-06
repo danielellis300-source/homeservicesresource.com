@@ -1,11 +1,9 @@
 // City data for HomeServicesResource.com
-// jrSlug = matching slug on indianapolisjunkremoval.org, or null for homepage
 module.exports = [
   {
     slug: "indianapolis",
     name: "Indianapolis",
     county: "Marion County",
-    jrSlug: null, // homepage
     intro: `As Indiana's capital and largest city, Indianapolis is really a patchwork of many neighborhoods stitched together under a single "Unigov" city-county government. That means the housing stock varies enormously from block to block — century-old bungalows and Victorian doubles in neighborhoods like Irvington, Fountain Square, and Broad Ripple sit a few miles from mid-century ranches in the outlying townships and new-construction infill downtown. For homeowners, that variety translates into very different service needs: older homes near the urban core tend to need more work on roofing, windows, gutters, and foundation-related repairs, while newer subdivisions in the outer townships lean more toward lawn care, fencing, and routine maintenance. Indianapolis also has some of the metro's harshest freeze-thaw cycles on driveways and sidewalks, which is why concrete leveling and repair is a common request citywide. Because Indianapolis is so large, response times and pricing from local providers can vary by side of town, so it's worth confirming a company actually serves your specific neighborhood before booking.`,
     faqs: [
       {
@@ -26,7 +24,6 @@ module.exports = [
     slug: "carmel",
     name: "Carmel",
     county: "Hamilton County",
-    jrSlug: "carmel",
     intro: `Carmel has built a national reputation for its roundabouts, walkable Arts & Design District, and highly rated schools, and that reputation comes with a housing market to match. Much of the city consists of newer, larger homes in planned subdivisions, many governed by active homeowners associations with specific rules about fencing materials, exterior paint colors, and landscaping. That makes it especially important to check HOA guidelines before starting a visible exterior project. Carmel's rapid growth over the past two decades also means a mix of home ages — some neighborhoods are brand new, while others near the older Arts & Design District and downtown core date back several decades and may need more traditional upkeep like gutter and roof work. Because Carmel's streets are designed around roundabouts rather than traditional four-way intersections, some homeowners find that dumpster or equipment placement requires a bit more planning around driveway access and city right-of-way rules.`,
     faqs: [
       {
@@ -47,7 +44,6 @@ module.exports = [
     slug: "fishers",
     name: "Fishers",
     county: "Hamilton County",
-    jrSlug: "fishers",
     intro: `Fishers has grown from a small crossroads town into one of the largest suburbs in the Indianapolis metro, driven by a strong local job market and a steady pipeline of new residential development. Most homes are relatively young by Indiana standards, built from the 1990s onward, which means fewer major structural repairs but a steady stream of routine and cosmetic projects — lawn care, fencing, deck building, and landscaping are all common requests as homeowners personalize newer builds. Many Fishers neighborhoods are part of homeowners associations with landscaping and exterior maintenance standards, so keeping up appearances matters both for curb appeal and to stay in good standing with the HOA. Fishers' continued growth also means new subdivisions are still being built on the city's edges, so if you're in one of the newest developments, some providers may need a little extra lead time to confirm exact service boundaries.`,
     faqs: [
       {
@@ -68,7 +64,6 @@ module.exports = [
     slug: "zionsville",
     name: "Zionsville",
     county: "Boone County",
-    jrSlug: "zionsville",
     intro: `Zionsville is known for its historic brick-paved Main Street and a village character that sets it apart from the rest of the metro, but the broader town includes everything from large-lot estate homes to newer subdivisions further from the village core. Many properties, especially those near the historic district, sit on larger lots with mature trees, which makes tree service, stump removal, and lawn care especially relevant here. The village center itself has additional design and historic-preservation guidelines that can affect exterior work like siding, windows, and fencing on older properties, so it's worth checking with the town before starting a project on a home near Main Street. Farther from downtown, Zionsville's newer neighborhoods look more like other Boone County suburbs, with typical HOA rules and more standardized lot sizes.`,
     faqs: [
       {
@@ -89,7 +84,6 @@ module.exports = [
     slug: "westfield",
     name: "Westfield",
     county: "Hamilton County",
-    jrSlug: "westfield",
     intro: `Westfield has transformed quickly over the past decade, growing from a smaller farming community into one of the fastest-expanding cities in the state, anchored in part by the Grand Park Sports Campus. That growth means a wide range of home ages within city limits — brand-new subdivisions sit alongside older farmhouses and rural-residential properties that predate the recent boom. Newer neighborhoods tend to need the same personalization projects seen elsewhere in Hamilton County: fencing, landscaping, deck building, and lawn care. Older properties on the city's fringes, some still on larger acreage, are more likely to need tree service, driveway or concrete work, and general contractor support for renovations. Because Westfield is still actively developing, construction traffic and ongoing road work in some areas can affect scheduling for larger deliveries like dumpsters, so confirming access with your provider ahead of time is a good idea.`,
     faqs: [
       {
@@ -110,7 +104,6 @@ module.exports = [
     slug: "noblesville",
     name: "Noblesville",
     county: "Hamilton County",
-    jrSlug: "noblesville",
     intro: `As the Hamilton County seat, Noblesville pairs a historic downtown square lined with 19th-century homes with newer subdivisions that have sprung up as the broader county has grown. That mix creates real variety in service needs: homes near the courthouse square and older residential streets often need roofing, window, gutter, and painting work suited to older construction, while newer neighborhoods on the city's edges tend to need fencing, landscaping, and lawn care more typical of new-build suburbs. The White River runs through parts of Noblesville, and properties near it can have specific drainage or landscaping considerations worth discussing with a local provider. Downtown Noblesville also has some historic-preservation considerations for exterior work on older homes, similar to other historic Hamilton County town centers.`,
     faqs: [
       {
@@ -131,7 +124,6 @@ module.exports = [
     slug: "avon",
     name: "Avon",
     county: "Hendricks County",
-    jrSlug: "avon",
     intro: `Avon sits just west of Indianapolis and has grown steadily into one of Hendricks County's largest bedroom communities, with most of its housing built from the 1990s onward. That relatively young housing stock means fewer major structural issues but a steady demand for routine maintenance and personalization projects — lawn care, fencing, painting, and landscaping are all common here as homeowners maintain and upgrade newer builds. Many Avon subdivisions have HOAs with standard architectural guidelines, so it's worth checking your covenants before starting visible exterior work. Avon's commercial corridor along US-36 and County Road 100 South has grown alongside the residential base, which has also made it easier for local and metro-wide service providers to reach Avon quickly compared to some more outlying Hendricks County areas.`,
     faqs: [
       {
@@ -152,7 +144,6 @@ module.exports = [
     slug: "greenwood",
     name: "Greenwood",
     county: "Johnson County",
-    jrSlug: "greenwood",
     intro: `Greenwood anchors the south side of the Indianapolis metro and has a longer development history than some of the newer Hamilton County suburbs, with established mid-century neighborhoods closer to Old Town Greenwood and newer subdivisions extending south and east. The US-31 corridor has brought significant commercial growth, and residential development has followed, giving Greenwood a mix of home ages and styles. Older sections of the city may need more roofing, gutter, and window work typical of homes several decades old, while newer neighborhoods lean toward fencing, landscaping, and routine lawn care. Johnson County's soil and drainage patterns can also make concrete leveling a fairly common need on driveways and walkways that have settled over time.`,
     faqs: [
       {
@@ -173,7 +164,6 @@ module.exports = [
     slug: "brownsburg",
     name: "Brownsburg",
     county: "Hendricks County",
-    jrSlug: "brownsburg",
     intro: `Brownsburg has kept a small-town feel even as it has grown steadily as part of the western Indianapolis metro, helped by its proximity to Lucas Oil Raceway and easy access to I-74. Much of the housing is mid-generation suburban — not as new as some Hamilton County developments, but not as old as Indianapolis's core neighborhoods — which creates fairly balanced demand across both routine maintenance (lawn care, gutter cleaning, painting) and occasional bigger projects like roofing or deck building as homes reach the age where major components need replacement. Brownsburg's residential areas are generally organized into subdivisions with HOAs of varying strictness, so it's worth a quick check of your covenants before starting exterior work.`,
     faqs: [
       {
@@ -194,7 +184,6 @@ module.exports = [
     slug: "plainfield",
     name: "Plainfield",
     county: "Hendricks County",
-    jrSlug: "plainfield",
     intro: `Plainfield's location next to Indianapolis International Airport and along the I-70 corridor has made it a logistics and distribution hub, and that commercial growth has helped fuel steady residential expansion as well. The town includes an older historic core near downtown Plainfield with traditional homes, alongside newer subdivisions built over the past two to three decades. Because Plainfield sees a fair amount of truck and commercial traffic near the interstate and airport, homeowners scheduling deliveries like dumpster rentals may want to confirm access routes, especially for properties near the busiest commercial corridors. Residential neighborhoods further from the interstate tend to be quieter and more typical of other Hendricks County suburbs, with standard HOA guidelines for exterior projects.`,
     faqs: [
       {
@@ -215,7 +204,6 @@ module.exports = [
     slug: "lawrence",
     name: "Lawrence",
     county: "Marion County",
-    jrSlug: "lawrence",
     intro: `Lawrence is a distinct city within Marion County's boundaries, best known for the former Fort Benjamin Harrison, much of which has been redeveloped into parkland, golf courses, and residential neighborhoods. That history gives Lawrence an interesting mix of housing: some neighborhoods trace back to military-era construction and mid-century development, while others near the former fort grounds are newer and built around the area's parks and green space. Homeowners in Lawrence's older neighborhoods often need the kind of maintenance typical of homes several decades old — roofing, gutter cleaning, window replacement, and painting — while newer pockets closer to Fort Harrison State Park see more demand for landscaping and fencing.`,
     faqs: [
       {
@@ -236,7 +224,6 @@ module.exports = [
     slug: "beech-grove",
     name: "Beech Grove",
     county: "Marion County",
-    jrSlug: "beech-grove",
     intro: `Beech Grove grew up around the railroad, originally developed as a company town for what's now Amtrak's repair shops, and it retains a compact, tight-knit character that's distinct from its larger Marion County neighbors. Housing here tends to be older and more modest in size than in the newer suburbs, with many homes dating from the early-to-mid 20th century. That makes routine exterior maintenance especially important — roofing, gutter cleaning, painting, and window work are common needs, since many homes are well past the age where original materials have been replaced at least once. Beech Grove's smaller, walkable layout also means most properties have modest lot sizes, which typically keeps projects like fencing and landscaping more contained in scope than in larger suburban yards.`,
     faqs: [
       {
@@ -257,7 +244,6 @@ module.exports = [
     slug: "speedway",
     name: "Speedway",
     county: "Marion County",
-    jrSlug: "speedway",
     intro: `Speedway is best known as home to the Indianapolis Motor Speedway, but away from race day it's a quiet, walkable small town with a classic grid layout and a housing stock made up largely of early-to-mid-20th-century bungalows and cottages. Like Beech Grove, its age means many homes are due for the kind of maintenance that comes with older construction — roofing, siding, window, and gutter work are all common requests. Lot sizes tend to be modest and close together, which usually makes projects like fencing, painting, and small landscaping jobs quicker and more straightforward than in larger suburban yards. Race weekends can bring a temporary surge in traffic and parking restrictions near the track, so homeowners near the Speedway itself may want to avoid scheduling deliveries or major service appointments during major event weekends.`,
     faqs: [
       {
@@ -278,7 +264,6 @@ module.exports = [
     slug: "lebanon",
     name: "Lebanon",
     county: "Boone County",
-    jrSlug: "lebanon",
     intro: `Lebanon is the Boone County seat and has traditionally had a more rural, small-town character than its Hamilton County neighbors, anchored by a historic courthouse square. That's changing quickly: significant new development, including large-scale technology and logistics investment along the I-65 corridor, has brought new residential growth to the area in recent years. As a result, Lebanon has a wide range of housing, from historic homes near the downtown square to farmhouses on larger rural-residential lots to a growing number of new subdivisions. Older and rural properties tend to need more tree service, driveway and concrete work, and general contractor support for renovations, while newer developments are starting to see the same demand for fencing, landscaping, and lawn care seen elsewhere in Boone County.`,
     faqs: [
       {

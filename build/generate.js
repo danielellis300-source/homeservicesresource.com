@@ -23,26 +23,34 @@ function writeFile(relPath, content) {
   fs.writeFileSync(full, content, "utf8");
 }
 
-const JR_BASE = "https://indianapolisjunkremoval.org/";
-function jrUrl(city) {
-  return city.jrSlug ? `${JR_BASE}${city.jrSlug}.html` : JR_BASE;
+// Generic outbound-partner support. A service with a `partner` field gets
+// one contextual link on its own page (via [text](url) markdown in its
+// `overview`, converted below) plus one outbound link per city page on that
+// service's row, replacing the usual internal link. All known partner sites
+// use the same URL shape: baseUrl + citySlug + extension, with Indianapolis
+// mapping to the partner's homepage. Add a new partner by adding a `partner`
+// field to a service in services-data.js — no other data changes needed as
+// long as the partner site follows this same per-city URL pattern.
+function partnerCityUrl(partner, city) {
+  if (city.slug === "indianapolis") return partner.baseUrl;
+  return `${partner.baseUrl}${city.slug}${partner.extension}`;
 }
 
-const JR_ANCHOR_TEMPLATES = [
-  (c) => `junk removal services in ${c.name}`,
-  (c) => `same-day junk hauling in ${c.name}`,
-  (c) => `local junk removal providers in ${c.name}`,
-  (c) => `junk removal companies serving ${c.name}`,
-  (c) => `full-service junk removal in ${c.name}`,
-  (c) => `${c.name} junk removal and hauling`,
-  (c) => `residential junk removal in ${c.name}`,
-  (c) => `same-day junk removal near ${c.name}`,
-  (c) => `${c.name}-area junk hauling`,
-  (c) => `trusted junk removal in ${c.name}`,
-  (c) => `upfront-priced junk removal in ${c.name}`,
-  (c) => `whole-house junk removal in ${c.name}`,
-  (c) => `${c.name} furniture & junk hauling`,
-  (c) => `junk removal pros serving ${c.name}`
+const PARTNER_ANCHOR_TEMPLATES = [
+  (label, city) => `${label} in ${city.name}`,
+  (label, city) => `${label} services in ${city.name}`,
+  (label, city) => `local ${label} in ${city.name}`,
+  (label, city) => `${label} near ${city.name}`,
+  (label, city) => `${label} companies serving ${city.name}`,
+  (label, city) => `${city.name} ${label}`,
+  (label, city) => `trusted ${label} in ${city.name}`,
+  (label, city) => `${label} providers in ${city.name}`,
+  (label, city) => `${city.name}-area ${label}`,
+  (label, city) => `professional ${label} in ${city.name}`,
+  (label, city) => `${label} pros serving ${city.name}`,
+  (label, city) => `${city.name} ${label} services`,
+  (label, city) => `reliable ${label} in ${city.name}`,
+  (label, city) => `${label} options in ${city.name}`
 ];
 
 const logoMark = `<svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-9"/><path d="M9.5 20v-6h5v6"/></svg>`;
@@ -63,7 +71,7 @@ function head({ title, description, canonicalPath, ogType, jsonLd }) {
 <meta property="og:description" content="${attrEscape(description)}">
 <meta property="og:url" content="${canonical}">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#1b3a4b">
+<meta name="theme-color" content="#1c1f4c">
 <link rel="stylesheet" href="${rel(canonicalPath, "assets/style.css")}">
 <script defer src="${rel(canonicalPath, "assets/nav.js")}"></script>
 ${ldBlocks}`;
@@ -289,9 +297,10 @@ function buildCityPage(city, index) {
 
   const serviceLinks = services
     .map((s, i) => {
-      if (s.junkRemoval) {
-        const anchor = JR_ANCHOR_TEMPLATES[index % JR_ANCHOR_TEMPLATES.length](city);
-        return `<li><a href="${jrUrl(city)}" rel="noopener" target="_blank">${anchor}</a><span class="external-tag">&#8599; external</span></li>`;
+      if (s.partner) {
+        const template = PARTNER_ANCHOR_TEMPLATES[(index + i) % PARTNER_ANCHOR_TEMPLATES.length];
+        const anchor = template(s.partner.anchorLabel, city);
+        return `<li><a href="${partnerCityUrl(s.partner, city)}" rel="noopener" target="_blank">${anchor}</a><span class="external-tag">&#8599; external</span></li>`;
       }
       return `<li><a href="${rel(canonicalPath, "services/" + s.slug + ".html")}">${s.name}</a></li>`;
     })
@@ -345,7 +354,7 @@ function buildCityPage(city, index) {
 function buildHomepage() {
   const canonicalPath = "/";
   const title = "HomeServicesResource.com | Indianapolis Home Services Guide & Directory";
-  const description = "An independent guide to home services in the Indianapolis, IN metro area — cost guides, tips for choosing a provider, and local resources for 17 common home projects across 14 cities.";
+  const description = `An independent guide to home services in the Indianapolis, IN metro area — cost guides, tips for choosing a provider, and local resources for ${services.length} common home projects across ${cities.length} cities.`;
 
   const serviceCards = services
     .map((s) => `<a class="card" href="${rel(canonicalPath, "services/" + s.slug + ".html")}"><div class="card-title">${s.name}</div><div class="card-sub">Cost guide &amp; how to choose &rarr;</div></a>`)
@@ -371,7 +380,7 @@ function buildHomepage() {
 
     <section class="section" id="services">
       <h2>Browse by Service</h2>
-      <p>Cost guides and provider-selection tips for 17 common home projects in the Indianapolis metro.</p>
+      <p>Cost guides and provider-selection tips for ${services.length} common home projects in the Indianapolis metro.</p>
       <div class="grid">
         ${serviceCards}
       </div>
@@ -413,7 +422,7 @@ function buildAboutPage() {
 
   <div class="container prose section" style="border-top:none;">
     <h2>What This Site Is</h2>
-    <p>HomeServicesResource.com exists to answer a simple set of questions that come up before almost any home project: what does this typically cost around Indianapolis, what does the work actually involve, and what should a homeowner ask before hiring someone. We publish plain-language guides covering 17 common home services and 14 cities and towns across the metro, and we keep the writing informational rather than promotional.</p>
+    <p>HomeServicesResource.com exists to answer a simple set of questions that come up before almost any home project: what does this typically cost around Indianapolis, what does the work actually involve, and what should a homeowner ask before hiring someone. We publish plain-language guides covering ${services.length} common home services and ${cities.length} cities and towns across the metro, and we keep the writing informational rather than promotional.</p>
 
     <h2>What This Site Is Not</h2>
     <p>We're not a home services company. We don't perform any of the work described on this site, we don't take job requests, and we don't display a phone number as though we're the ones showing up at your door. We're also not a directory that accepts paid listings from every contractor who wants to appear on the page &mdash; the goal is to be a useful, honest reference first.</p>
@@ -422,7 +431,7 @@ function buildAboutPage() {
     <p>The cost ranges on this site reflect typical pricing patterns for each type of project in the Indianapolis metro, based on general industry pricing norms for the region. They're meant as a starting point for budgeting and comparing quotes, not a quote itself &mdash; actual pricing depends on the specifics of your property, the materials or scope you choose, and the provider you hire. We always recommend getting at least two or three written quotes before committing to a project.</p>
 
     <h2>A Note on Links</h2>
-    <p>Most of the links on this site point to other pages within HomeServicesResource.com, since dense internal linking between our service guides and city guides is how we help homeowners find related information. In a small number of places &mdash; specifically around junk removal, where we reference outside providers &mdash; we link to outside businesses we think are relevant to what a reader is looking for. Those links are clearly written in context and are not advertisements.</p>
+    <p>Most of the links on this site point to other pages within HomeServicesResource.com, since dense internal linking between our service guides and city guides is how we help homeowners find related information. For a handful of services &mdash; where we reference outside specialist providers &mdash; we link to outside businesses we think are relevant to what a reader is looking for. Those links are clearly written in context, marked when they lead off-site, and are not advertisements.</p>
 
     <h2>Corrections and Updates</h2>
     <p>Home service pricing and provider availability change over time. If you notice something on this site that looks outdated or inaccurate, we'd rather fix it than leave it wrong &mdash; this is meant to be a genuinely useful reference for Indianapolis-area homeowners, not a thin placeholder for search engines.</p>
