@@ -57,7 +57,7 @@ const logoMark = `<svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke=
 
 // --- shared layout pieces ------------------------------------------------
 
-function head({ title, description, canonicalPath, ogType, jsonLd }) {
+function head({ title, description, canonicalPath, ogType, jsonLd, extraMeta }) {
   const canonical = canonicalPath === "/" ? `${SITE}/` : `${SITE}${canonicalPath}`;
   const ldBlocks = jsonLd.map((obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`).join("\n");
   return `<meta charset="UTF-8">
@@ -72,7 +72,7 @@ function head({ title, description, canonicalPath, ogType, jsonLd }) {
 <meta property="og:url" content="${canonical}">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#1c1f4c">
-<link rel="stylesheet" href="${rel(canonicalPath, "assets/style.css")}">
+${extraMeta || ""}<link rel="stylesheet" href="${rel(canonicalPath, "assets/style.css")}">
 <script defer src="${rel(canonicalPath, "assets/nav.js")}"></script>
 ${ldBlocks}`;
 }
@@ -173,11 +173,11 @@ function footer(canonicalPath) {
 </footer>`;
 }
 
-function page({ canonicalPath, title, description, ogType, jsonLd, bodyHtml, bodyClass }) {
+function page({ canonicalPath, title, description, ogType, jsonLd, bodyHtml, bodyClass, extraMeta }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
-${head({ title, description, canonicalPath, ogType, jsonLd })}
+${head({ title, description, canonicalPath, ogType, jsonLd, extraMeta })}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ""}>
 ${header(canonicalPath)}
@@ -396,7 +396,8 @@ function buildHomepage() {
   </div>
 </main>`;
 
-  writeFile("index.html", page({ canonicalPath, title, description, ogType: "website", jsonLd, bodyHtml }));
+  const extraMeta = `<meta name="msvalidate.01" content="808074A1FFBD0E552399BF038F7929D9">\n`;
+  writeFile("index.html", page({ canonicalPath, title, description, ogType: "website", jsonLd, bodyHtml, extraMeta }));
 }
 
 function buildAboutPage() {
